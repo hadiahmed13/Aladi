@@ -1,12 +1,13 @@
-// tailwind.config.js
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily } = require("tailwindcss/defaultTheme")
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,css}",
-    "./pages/**/*.{js,ts,jsx,tsx,css}",
-    "./components/**/*.{js,ts,jsx,tsx,css}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -78,4 +79,5 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
+}
+
