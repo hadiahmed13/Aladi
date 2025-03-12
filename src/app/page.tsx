@@ -283,10 +283,10 @@ const projects = [
     },
     {
         id: 2,
-        name: "MediCare Clinic",
-        description: "Medical practice website with appointment scheduling system",
-        image: "/placeholder.svg?height=300&width=400",
-        url: "#",
+        name: "GTA Podcasts",
+        description: "A Podcasting and Recording studio",
+        image: "/gta_podcasts_logo.webp?height=150&width=200",
+        url: "https://gtapodcasts.com",
     },
     {
         id: 3,
