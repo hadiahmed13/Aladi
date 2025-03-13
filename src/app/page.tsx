@@ -31,11 +31,13 @@ export default function HomePage() {
                                 </div>
                             </div>
                             <Image
-                                src="/placeholder.svg?height=600&width=600"
+                                src="/hero2.jpg"
                                 width={600}
                                 height={600}
                                 alt="Hero image showing web development"
-                                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover"
+                                className="mx-auto aspect-square overflow-hidden rounded-xl 
+                                object-cover brightness-90 contrast-90 saturate-100 transition-all 
+                                duration-300 group-hover:brightness-120"
                             />
                         </div>
                     </div>
@@ -194,6 +196,19 @@ export default function HomePage() {
                         </div>
                     </div>
                 </section>
+
+                <section id="about" className="w-full py-12 md:py-24 lg:py-32 bg-light">
+                    <div className="container px-4 md:px-6">
+                        <div className="text-center space-y-4">
+                            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">About Us</h2>
+                            <p className="text-muted-foreground md:text-xl">
+                                At Aladi, we believe in creating stunning digital experiences. Our team combines technical expertise with creative design to help businesses grow and thrive in the digital world.
+                            </p>
+                            {/* Add more detailed content here as needed */}
+                        </div>
+                    </div>
+                </section>
+
             </main>
             <footer className="border-t">
                 <div className="container flex flex-col gap-4 py-10 md:flex-row md:gap-8 md:py-12 px-4 md:px-6">
@@ -292,28 +307,28 @@ const projects = [
         id: 3,
         name: "Luxe Interiors",
         description: "Portfolio website for a high-end interior design studio",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/luxe.png",
         url: "#",
     },
     {
         id: 4,
         name: "GreenGrow Farms",
         description: "E-commerce site for an organic produce delivery service",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/greenGrow.png",
         url: "#",
     },
     {
         id: 5,
         name: "TechNova Solutions",
         description: "Corporate website for a B2B technology consulting firm",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/technova.png",
         url: "#",
     },
     {
         id: 6,
         name: "Fitness First Gym",
         description: "Membership website with class scheduling for a fitness center",
-        image: "/placeholder.svg?height=300&width=400",
+        image: "/fitness.png",
         url: "#",
     },
 ]
