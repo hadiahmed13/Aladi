@@ -32,26 +32,20 @@ export default function Header() {
       }}
     >
       <div className="container flex h-16 items-center justify-between px-4 md:px-6 relative">
-        <span className="text-lg font-bold bg-gradient-to-r from-blue-200 to-cyan-300 bg-clip-text text-transparent">
-          Aladi
-        </span>
-        {/* Centered logo */}
-        <div className="absolute left-1/2 -translate-x-1/2">
-          <Link href="/" className="flex items-center z-10">
-            <div className="group relative">
-              <Image
+        <Link href="/" className="flex items-center z-10">
+          <div className="group relative">
+            <Image
                 src="/aladi_logo.png"
                 alt="Aladi Logo"
-                width={44}
-                height={44}
+                width={40}
+                height={40}
                 className="brightness-105 contrast-125 saturate-150 transition-all duration-300 group-hover:brightness-110"
-              />
-              <div
+            />
+            <div
                 className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none rounded-lg"
-              />
-            </div>
-          </Link>
-        </div>
+            />
+          </div>
+        </Link>
         {/* Navigation on right */}
         <nav className="hidden md:flex gap-6 items-center z-10">
           <Link href="/" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
