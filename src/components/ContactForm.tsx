@@ -133,6 +133,7 @@ export function ContactForm() {
 
             {success ? (
                 <div className="text-green-500 text-sm flex flex-col gap-2">
+                    {/* eslint-disable-next-line react/no-unescaped-entities */}
                     <p>Message sent successfully! We'll respond shortly.</p>
                     <Button
                         type="button"
