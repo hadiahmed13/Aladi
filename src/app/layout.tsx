@@ -1,8 +1,8 @@
 import "./globals.css"
 import { Inter } from "next/font/google"
 //import { ThemeProvider } from "../components/theme-provider"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 import type React from "react"
 import { Toaster } from "sonner"
 
