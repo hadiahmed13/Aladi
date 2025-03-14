@@ -7,6 +7,7 @@ import {
     Smartphone
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {ContactForm} from "@/components/ContactForm";
 
 export default function HomePage() {
     return (
@@ -164,43 +165,9 @@ export default function HomePage() {
                                         Fill out the form below, or email: contact@aladi.ca and we&apos;ll get back to you soon.
                                     </p>
                                 </div>
-                                <form className="space-y-4">
-                                    <div className="grid gap-2">
-                                        <label htmlFor="name" className="text-sm font-medium leading-none">
-                                            Full Name
-                                        </label>
-                                        <input
-                                            id="name"
-                                            type="text"
-                                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                            placeholder="name"
-                                        />
-                                    </div>
-                                    <div className="grid gap-2">
-                                        <label htmlFor="email" className="text-sm font-medium leading-none">
-                                            Email
-                                        </label>
-                                        <input
-                                            id="email"
-                                            type="email"
-                                            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                            placeholder="name@example.com"
-                                        />
-                                    </div>
-                                    <div className="grid gap-2">
-                                        <label htmlFor="message" className="text-sm font-medium leading-none">
-                                            Message
-                                        </label>
-                                        <textarea
-                                            id="message"
-                                            className="flex min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                            placeholder="Tell us about your project"
-                                        />
-                                    </div>
-                                    <Button type="submit" className="w-full">
-                                        Send Message
-                                    </Button>
-                                </form>
+
+                                {/* Use the client-side ContactForm component */}
+                                <ContactForm/>
                             </div>
                         </div>
                     </div>
@@ -243,6 +210,7 @@ export default function HomePage() {
                 </section>
             </main>
             <footer className="border-t">
+                {/* No use for this at the moment
                 <div className="container flex flex-col gap-4 py-10 md:flex-row md:gap-8 md:py-12 px-4 md:px-6">
                     <div className="flex-1 space-y-4">
                         <div className="flex items-center gap-2 font-bold text-xl">
@@ -311,6 +279,7 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
+                        */}
                 <div className="border-t py-6 text-center text-xs text-muted-foreground">
                     &copy; {new Date().getFullYear()} Aladi Web Development. All rights reserved.
                 </div>
@@ -365,3 +334,5 @@ const projects = [
         url: "#",
     },
 ]
+
+

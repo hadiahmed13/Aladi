@@ -39,7 +39,7 @@ export default function Header() {
                 alt="Aladi Logo"
                 width={40}
                 height={40}
-                className="brightness-105 contrast-125 saturate-150 transition-all duration-300 group-hover:brightness-110"
+                className="rotate-270 brightness-105 contrast-125 saturate-150 transition-all duration-300 group-hover:brightness-110"
             />
             <div
                 className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none rounded-lg"
