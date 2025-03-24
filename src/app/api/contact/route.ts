@@ -28,24 +28,18 @@ export async function POST(request: Request) {
                 { status: 400 }
             )
         }
-
-        // Configure transporter with better security
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT),
-            secure: process.env.SMTP_PORT === '465', // true for 465, false for 587
+            host: process.env.SMTP_HOST, // Should be "mail.aladi.ca"
+            port: Number(process.env.SMTP_PORT), // Should be 465
+            secure: true, // Required for port 465 (SSL/TLS)
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASSWORD
+                user: process.env.EMAIL_USER, // contact@aladi.ca
+                pass: process.env.EMAIL_PASSWORD,
             },
             tls: {
-                ciphers: 'SSLv3',
-                minVersion: 'TLSv1.2',
-                rejectUnauthorized: process.env.NODE_ENV === 'production' // true in production
+                rejectUnauthorized: process.env.NODE_ENV === 'production',
             },
-            logger: process.env.NODE_ENV === 'development', // Enable logging in dev
-            debug: process.env.NODE_ENV === 'development'  // Enable debugging in dev
-        })
+        });
 
         // Email content with better sanitization
         const sanitizedMessage = validation.data.message
@@ -54,8 +48,8 @@ export async function POST(request: Request) {
             .replace(/\n/g, '<br>')
 
         const mailOptions = {
-            from: `"Aladi Contact Form" <${process.env.EMAIL_USER}>`,
-            to: process.env.EMAIL_USER,
+            from: `"Aladi Contact Form" <${process.env.EMAIL_USER}>`, // contact@aladi.ca
+            to: process.env.EMAIL_USER, // Send to yourself
             replyTo: validation.data.email, // Allow direct replies to user
             subject: `New Contact Form Submission - ${validation.data.name}`,
             html: `
