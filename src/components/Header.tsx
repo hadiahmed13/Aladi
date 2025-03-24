@@ -7,7 +7,7 @@ import Image from "next/image"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false) // Add this line
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +48,7 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Mobile Menu Button (Add this block) */}
+          {/* Mobile Menu Button */}
           <button
               className="md:hidden p-2 z-10"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -68,7 +68,7 @@ export default function Header() {
             </svg>
           </button>
 
-          {/* Desktop Navigation (Keep this as is) */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-6 items-center z-10">
             <Link href="/" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
               Home
@@ -90,7 +90,7 @@ export default function Header() {
             </Button>
           </nav>
 
-          {/* Mobile Dropdown Menu (Add this block) */}
+          {/* Mobile Dropdown Menu */}
           {isMobileMenuOpen && (
               <div className="md:hidden absolute top-16 left-0 right-0 bg-[#1E293B] border-t border-white/10 shadow-lg">
                 <nav className="flex flex-col space-y-4 p-4">

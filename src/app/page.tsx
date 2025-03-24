@@ -191,7 +191,7 @@ export default function HomePage() {
                                 <h3 className="text-xl font-semibold">Get in Touch</h3>
                                 <div className="flex flex-col items-center space-y-1 text-muted-foreground">
                                     <p className="flex items-center gap-2">
-                                        <span>Typically respond within 24 hours</span>
+                                        <span>Responds within 24 hours</span>
                                         <span>•</span>
                                         <a href="mailto:contact@aladi.ca" className="text-primary hover:underline">
                                             contact@aladi.ca
