@@ -16,6 +16,12 @@ const schema = z.object({
 
 export async function POST(request: Request) {
     try {
+        // Debug: Log environment variables (remove in production)
+        console.log("SMTP Host:", process.env.SMTP_HOST);
+        console.log("SMTP Port:", process.env.SMTP_PORT);
+        console.log("Email User:", process.env.EMAIL_USER);
+        console.log("Email Password exists:", !!process.env.EMAIL_PASSWORD);
+        
         // Validate request body
         const body = await request.json()
         const validation = schema.safeParse(body)
@@ -28,17 +34,14 @@ export async function POST(request: Request) {
                 { status: 400 }
             )
         }
+
+        // Using environment variables
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST, // Should be "mail.aladi.ca"
-            port: Number(process.env.SMTP_PORT), // Should be 465
-            secure: true, // Required for port 465 (SSL/TLS)
+            service: 'gmail',
             auth: {
-                user: process.env.EMAIL_USER, // aladi.contact@gmail.com
-                pass: process.env.EMAIL_PASSWORD,
-            },
-            tls: {
-                rejectUnauthorized: process.env.NODE_ENV === 'production',
-            },
+                user: process.env.EMAIL_USER || '',
+                pass: process.env.EMAIL_PASSWORD || ''
+            }
         });
 
         // Email content with better sanitization
@@ -48,7 +51,7 @@ export async function POST(request: Request) {
             .replace(/\n/g, '<br>')
 
         const mailOptions = {
-            from: `"Aladi Contact Form" <${process.env.EMAIL_USER}>`, // aladi.contact@gmail.com
+            from: `"Aladi Contact Form" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_USER, // Send to yourself
             replyTo: validation.data.email, // Allow direct replies to user
             subject: `New Contact Form Submission - ${validation.data.name}`,
