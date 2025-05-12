@@ -300,9 +300,18 @@ const projects = [
     },
     {
         id: 2,
+        name: "New Edge Construction",
+        description: "Construction website",
+        image: "/NewEdgeConstructionThumbnail.webp?height=300&width=400",
+        url: "https://newedgeconstruction.com/",
+    },
+    {
+        id: 3,
         name: "Career IQ",
         description: "AI Powered Career Coaching Platform",
         image: "/CareerIQ.png?height=300&width=400",
         url: "https://career-iq.vercel.app/",
     },
 ]
+
+
