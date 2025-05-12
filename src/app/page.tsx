@@ -162,7 +162,7 @@ export default function HomePage() {
                                 <div className="space-y-2">
                                     <h3 className="text-xl font-bold">Contact Form</h3>
                                     <p className="text-sm text-muted-foreground">
-                                        Fill out the form below, or email: contact@aladi.ca and we&apos;ll get back to you soon.
+                                        Fill out the form below, or email: aladi.contact@gmail.com and we&apos;ll get back to you soon.
                                     </p>
                                 </div>
 
@@ -193,14 +193,14 @@ export default function HomePage() {
                                     <p className="flex items-center gap-2">
                                         <span>Responds within 24 hours</span>
                                         <span>•</span>
-                                        <a href="mailto:contact@aladi.ca" className="text-primary hover:underline">
-                                            contact@aladi.ca
+                                        <a href="mailto:aladi.contact@gmail.com" className="text-primary hover:underline">
+                                            aladi.contact@gmail.com
                                         </a>
                                     </p>
                                     <p className="flex items-center gap-2">
                                         <span>Prefer a call?</span>
-                                        <a href="tel:+14164022431" className="text-primary hover:underline">
-                                            (416) 402-2431
+                                        <a href="tel:+16475646370" className="text-primary hover:underline">
+                                            (647) 564 6370
                                         </a>
                                     </p>
                                 </div>

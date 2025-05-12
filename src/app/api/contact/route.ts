@@ -33,7 +33,7 @@ export async function POST(request: Request) {
             port: Number(process.env.SMTP_PORT), // Should be 465
             secure: true, // Required for port 465 (SSL/TLS)
             auth: {
-                user: process.env.EMAIL_USER, // contact@aladi.ca
+                user: process.env.EMAIL_USER, // aladi.contact@gmail.com
                 pass: process.env.EMAIL_PASSWORD,
             },
             tls: {
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
             .replace(/\n/g, '<br>')
 
         const mailOptions = {
-            from: `"Aladi Contact Form" <${process.env.EMAIL_USER}>`, // contact@aladi.ca
+            from: `"Aladi Contact Form" <${process.env.EMAIL_USER}>`, // aladi.contact@gmail.com
             to: process.env.EMAIL_USER, // Send to yourself
             replyTo: validation.data.email, // Allow direct replies to user
             subject: `New Contact Form Submission - ${validation.data.name}`,
