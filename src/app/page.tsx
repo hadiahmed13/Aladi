@@ -300,39 +300,9 @@ const projects = [
     },
     {
         id: 2,
-        name: "New Edge Construction",
-        description: "Construction website",
-        image: "/NewEdgeConstructionThumbnail.webp?height=300&width=400",
-        url: "https://newedgeconstruction.ca/",
-    },
-    {
-        id: 3,
-        name: "Luxe Interiors",
-        description: "Portfolio website for a high-end interior design studio",
-        image: "/luxe.png",
-        url: "#",
-    },
-    {
-        id: 4,
-        name: "GreenGrow Farms",
-        description: "E-commerce site for an organic produce delivery service",
-        image: "/greenGrow.png",
-        url: "#",
-    },
-    {
-        id: 5,
-        name: "TechNova Solutions",
-        description: "Corporate website for a B2B technology consulting firm",
-        image: "/technova.png",
-        url: "#",
-    },
-    {
-        id: 6,
-        name: "Fitness First Gym",
-        description: "Membership website with class scheduling for a fitness center",
-        image: "/fitness.png",
-        url: "#",
+        name: "Career IQ",
+        description: "AI Powered Career Coaching Platform",
+        image: "/CareerIQ.png?height=300&width=400",
+        url: "https://career-iq.vercel.app/",
     },
 ]
-
-
