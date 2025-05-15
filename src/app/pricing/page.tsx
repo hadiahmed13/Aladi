@@ -36,7 +36,8 @@ export default function PricingPage() {
           </div>
 
           {/* Business */}
-          <div className="border rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col">
+          <div className="border rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col bg-gray-50 border-blue-500">
+            <div className="bg-blue-500 text-white text-xs uppercase font-bold tracking-wider py-1 px-2 rounded-full inline-block mb-3 self-start">Popular</div>
             <h3 className="text-2xl font-bold mb-2">Business Site</h3>
             <div className="text-3xl font-bold mb-6">$999</div>
             <ul className="space-y-3 mb-8 flex-grow">
@@ -51,14 +52,13 @@ export default function PricingPage() {
             <div className="mt-auto">
               <p className="italic text-sm mb-4">Ideal for: Growing businesses</p>
               <Link href="/#contact">
-                <Button className="w-full">Get Started</Button>
+                <Button className="w-full bg-blue-500 hover:bg-blue-600">Get Started</Button>
               </Link>
             </div>
           </div>
 
           {/* Pro */}
-          <div className="border rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col bg-gray-50 border-blue-500">
-            <div className="bg-blue-500 text-white text-xs uppercase font-bold tracking-wider py-1 px-2 rounded-full inline-block mb-3 self-start">Popular</div>
+          <div className="border rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col">
             <h3 className="text-2xl font-bold mb-2">Pro Site</h3>
             <div className="text-3xl font-bold mb-6">$1799</div>
             <ul className="space-y-3 mb-8 flex-grow">
@@ -73,7 +73,7 @@ export default function PricingPage() {
             <div className="mt-auto">
               <p className="italic text-sm mb-4">Ideal for: Advanced web needs</p>
               <Link href="/#contact">
-                <Button className="w-full bg-blue-500 hover:bg-blue-600">Get Started</Button>
+                <Button className="w-full">Get Started</Button>
               </Link>
             </div>
           </div>
