@@ -63,7 +63,6 @@ export default function PricingPage() {
             <div className="text-3xl font-bold mb-6">$1799</div>
             <ul className="space-y-3 mb-8 flex-grow">
               <li>Up to 12 pages</li>
-              <li>CMS integration</li>
               <li>Booking or forms</li>
               <li>API integrations</li>
               <li>Newsletter signup</li>
@@ -133,13 +132,6 @@ export default function PricingPage() {
                 <td className="px-6 py-4 text-sm text-gray-500 text-center">15 pages</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 text-sm font-medium text-gray-900">CMS</td>
-                <td className="px-6 py-4 text-sm text-gray-500 text-center">No</td>
-                <td className="px-6 py-4 text-sm text-gray-500 text-center">No</td>
-                <td className="px-6 py-4 text-sm text-gray-500 text-center">Yes</td>
-                <td className="px-6 py-4 text-sm text-gray-500 text-center">Yes</td>
-              </tr>
-              <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Contact form</td>
                 <td className="px-6 py-4 text-sm text-gray-500 text-center">Basic</td>
                 <td className="px-6 py-4 text-sm text-gray-500 text-center">Advanced</td>
@@ -199,10 +191,6 @@ export default function PricingPage() {
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Blog setup</td>
                 <td className="px-6 py-4 text-sm text-gray-500 text-right">$150</td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 text-sm font-medium text-gray-900">CMS/Admin</td>
-                <td className="px-6 py-4 text-sm text-gray-500 text-right">$350+</td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Logo design</td>
