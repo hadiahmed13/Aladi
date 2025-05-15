@@ -170,27 +170,29 @@ export default function HomePage() {
                         <div className="mx-auto grid items-start gap-8 py-12 md:grid-cols-3 lg:gap-12">
                             {/* Starter Package */}
                             <div className="grid gap-4 rounded-lg border p-6">
-                                <h3 className="text-xl font-bold">Starter Site</h3>
+                                <div className="flex justify-between">
+                                    <h3 className="text-xl font-bold">Starter Site</h3>
+                                </div>
                                 <div className="text-3xl font-bold">$499</div>
-                                <p className="text-sm text-muted-foreground">Perfect for individuals and small businesses just getting started.</p>
+                                <p className="text-sm text-muted-foreground">Perfect for startups and personal brands.</p>
                                 <ul className="grid gap-2 text-sm">
                                     <li className="flex items-center gap-2">
                                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                         </svg>
-                                        Up to 3 pages
+                                        Professional design that stands out
                                     </li>
                                     <li className="flex items-center gap-2">
                                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                         </svg>
-                                        Mobile responsive design
+                                        Mobile-friendly responsive layout
                                     </li>
                                     <li className="flex items-center gap-2">
                                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                         </svg>
-                                        Basic contact form
+                                        Fast load times for better conversion
                                     </li>
                                 </ul>
                                 <Link href="/pricing" className="mt-4">
@@ -201,23 +203,29 @@ export default function HomePage() {
                             {/* Business Package */}
                             <div className="grid gap-4 rounded-lg border p-6 bg-muted">
                                 <div className="flex justify-between">
-                                    <h3 className="text-xl font-bold">Pro Site</h3>
+                                    <h3 className="text-xl font-bold">Business Site</h3>
                                     <span className="px-2.5 py-0.5 text-xs bg-primary text-primary-foreground rounded-full">Popular</span>
                                 </div>
-                                <div className="text-3xl font-bold">$1799</div>
-                                <p className="text-sm text-muted-foreground">For businesses with more advanced web needs.</p>
+                                <div className="text-3xl font-bold">$999</div>
+                                <p className="text-sm text-muted-foreground">For growing businesses with more content needs.</p>
                                 <ul className="grid gap-2 text-sm">
                                     <li className="flex items-center gap-2">
                                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                         </svg>
-                                        Up to 12 pages
+                                        Enhanced animations and interactions
                                     </li>
                                     <li className="flex items-center gap-2">
                                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                         </svg>
-                                        API integrations
+                                        Blog or project showcase section
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        SEO optimization for better ranking
                                     </li>
                                 </ul>
                                 <Link href="/pricing" className="mt-4">
@@ -225,29 +233,29 @@ export default function HomePage() {
                                 </Link>
                             </div>
                             
-                            {/* E-commerce Package */}
+                            {/* Pro Package */}
                             <div className="grid gap-4 rounded-lg border p-6">
-                                <h3 className="text-xl font-bold">E-Commerce Site</h3>
-                                <div className="text-3xl font-bold">$2499+</div>
-                                <p className="text-sm text-muted-foreground">Complete solution for online stores.</p>
+                                <h3 className="text-xl font-bold">Pro Site</h3>
+                                <div className="text-3xl font-bold">$1799</div>
+                                <p className="text-sm text-muted-foreground">Advanced functionality for established businesses.</p>
                                 <ul className="grid gap-2 text-sm">
                                     <li className="flex items-center gap-2">
                                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                         </svg>
-                                        Shopping cart + checkout
+                                        Advanced interactive elements
                                     </li>
                                     <li className="flex items-center gap-2">
                                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                         </svg>
-                                        Payment gateway
+                                        Custom API integrations
                                     </li>
                                     <li className="flex items-center gap-2">
                                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                         </svg>
-                                        Inventory management
+                                        Advanced analytics and reporting
                                     </li>
                                 </ul>
                                 <Link href="/pricing" className="mt-4">

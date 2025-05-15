@@ -63,6 +63,7 @@ export default function PricingPage() {
             <div className="text-3xl font-bold mb-6">$1799</div>
             <ul className="space-y-3 mb-8 flex-grow">
               <li>Up to 12 pages</li>
+              <li>Advanced interactive elements</li>
               <li>Booking or forms</li>
               <li>API integrations</li>
               <li>Newsletter signup</li>
@@ -109,16 +110,16 @@ export default function PricingPage() {
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Feature
                 </th>
-                <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">
                   Starter
                 </th>
-                <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">
                   Business
                 </th>
-                <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">
                   Pro
                 </th>
-                <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">
                   E-Commerce
                 </th>
               </tr>
@@ -130,6 +131,13 @@ export default function PricingPage() {
                 <td className="px-6 py-4 text-sm text-gray-500 text-center">7 pages</td>
                 <td className="px-6 py-4 text-sm text-gray-500 text-center">12 pages</td>
                 <td className="px-6 py-4 text-sm text-gray-500 text-center">15 pages</td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 text-sm font-medium text-gray-900">Interactive Elements</td>
+                <td className="px-6 py-4 text-sm text-gray-500 text-center">Basic</td>
+                <td className="px-6 py-4 text-sm text-gray-500 text-center">Enhanced</td>
+                <td className="px-6 py-4 text-sm text-gray-500 text-center">Advanced</td>
+                <td className="px-6 py-4 text-sm text-gray-500 text-center">Advanced</td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Contact form</td>
@@ -171,10 +179,10 @@ export default function PricingPage() {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                   Service
                 </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">
                   Price
                 </th>
               </tr>
@@ -191,6 +199,10 @@ export default function PricingPage() {
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Blog setup</td>
                 <td className="px-6 py-4 text-sm text-gray-500 text-right">$150</td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 text-sm font-medium text-gray-900">Admin dashboard</td>
+                <td className="px-6 py-4 text-sm text-gray-500 text-right">$350+</td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Logo design</td>
