@@ -318,8 +318,10 @@ export default function HomePage() {
                             <div className="space-y-2">
                                 <h3 className="text-xl font-semibold">Get in Touch</h3>
                                 <div className="flex flex-col items-center space-y-1 text-muted-foreground">
-                                    <p className="flex items-center gap-2">
-                                        <span>Responds within 24 hours</span>
+                                    <p className="flex items-center gap-2 flex-wrap justify-center">
+                                        <span className="md:inline">Responds within</span>
+                                        <span className="hidden md:inline">24 hours</span>
+                                        <span className="md:hidden">24hr</span>
                                         <span>•</span>
                                         <a href="mailto:aladi.contact@gmail.com" className="text-primary hover:underline">
                                             aladi.contact@gmail.com
