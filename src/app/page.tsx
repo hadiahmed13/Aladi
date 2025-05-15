@@ -435,7 +435,7 @@ const projects = [
         id: 3,
         name: "Career IQ",
         description: "AI Powered Career Coaching Platform",
-        image: "/careeriq.png?height=300&width=400",
+        image: "/CareerIQ.png?height=300&width=400",
         url: "https://career-iq.vercel.app/",
     },
 ]
