@@ -4,9 +4,7 @@ import Stripe from 'stripe';
 // Log environment variables (redacted)
 console.log('STRIPE_SECRET_KEY exists:', !!process.env.STRIPE_SECRET_KEY);
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2022-11-15' as any,
-});
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
 
 export async function POST(req: NextRequest) {
   console.log('POST request received at /api/create-checkout-session');
@@ -47,17 +45,18 @@ export async function POST(req: NextRequest) {
 
       console.log('Stripe session created successfully:', session.id);
       return NextResponse.json({ url: session.url });
-    } catch (stripeError: any) {
-      console.error('Stripe API error:', stripeError.message);
+    } catch (stripeError: unknown) {
+      console.error('Stripe API error:', stripeError instanceof Error ? stripeError.message : String(stripeError));
       return NextResponse.json(
-        { error: `Stripe error: ${stripeError.message}` },
+        { error: `Stripe error: ${stripeError instanceof Error ? stripeError.message : String(stripeError)}` },
         { status: 500 }
       );
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Server error in checkout endpoint:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Internal server error';
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      { error: errorMessage },
       { status: 500 }
     );
   }

@@ -1,11 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
-
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 
 const plans = [
   { 
@@ -13,7 +10,7 @@ const plans = [
     priceLabel: '$499', 
     productId: 'prod_SKtGY4NCeUcq50',
     features: [
-      'Up to 3 pages',
+      'Up to 3 pages.',
       'Mobile responsive design',
       'Custom domain setup',
       'Basic contact form',
@@ -286,7 +283,7 @@ export default function PricingPage() {
         <h2 className="text-2xl font-bold mb-4">Not sure which package is right for you?</h2>
         <Link href="/#contact">
           <Button size="lg" className="px-8 py-6 text-lg">
-            Contact Us for a Free Consultation
+            Contact Us for a Free Consultation!
           </Button>
         </Link>
       </section>
