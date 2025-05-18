@@ -28,7 +28,7 @@ export default function PricingPage() {
               <li>1 round of revisions</li>
             </ul>
             <div className="mt-auto">
-              <p className="italic text-sm mb-4">Ideal for: Personal portfolios, local services</p>
+              <p className="italic text-sm mb-4">Ideal for: Portfolios & local services</p>
               <Link href="/#contact">
                 <Button className="w-full">Get Started</Button>
               </Link>
@@ -50,7 +50,7 @@ export default function PricingPage() {
               <li>2 revisions</li>
             </ul>
             <div className="mt-auto">
-              <p className="italic text-sm mb-4">Ideal for: Growing businesses</p>
+              <p className="italic text-sm mb-4">Best for growing businesses</p>
               <Link href="/#contact">
                 <Button className="w-full bg-blue-500 hover:bg-blue-600">Get Started</Button>
               </Link>
@@ -71,7 +71,7 @@ export default function PricingPage() {
               <li>3 revisions</li>
             </ul>
             <div className="mt-auto">
-              <p className="italic text-sm mb-4">Ideal for: Advanced web needs</p>
+              <p className="italic text-sm mb-4">Ideal for advanced web needs</p>
               <Link href="/#contact">
                 <Button className="w-full">Get Started</Button>
               </Link>
@@ -91,7 +91,7 @@ export default function PricingPage() {
               <li>3 revisions</li>
             </ul>
             <div className="mt-auto">
-              <p className="italic text-sm mb-4">Ideal for: Online stores</p>
+              <p className="italic text-sm mb-4">Perfect for online stores</p>
               <Link href="/#contact">
                 <Button className="w-full">Get Started</Button>
               </Link>
