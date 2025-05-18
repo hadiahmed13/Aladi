@@ -1,8 +1,109 @@
-import React from 'react';
+'use client';
+
+import { useState } from 'react';
+import { loadStripe } from '@stripe/stripe-js';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
+
+const plans = [
+  { 
+    name: 'Starter Site', 
+    priceLabel: '$499', 
+    productId: 'prod_SKtGY4NCeUcq50',
+    features: [
+      'Up to 3 pages',
+      'Mobile responsive design',
+      'Custom domain setup',
+      'Basic contact form',
+      '1 round of revisions'
+    ],
+    idealFor: 'Ideal for: Portfolios & local services'
+  },
+  { 
+    name: 'Business Site', 
+    priceLabel: '$999', 
+    productId: 'prod_SKtJ2tDcekTr2s',
+    popular: true,
+    features: [
+      'Up to 7 pages',
+      'Enhanced design and animations',
+      'Contact form with email integration',
+      'Blog or project listing',
+      'Social integrations',
+      'SEO basics',
+      '2 revisions'
+    ],
+    idealFor: 'Best for growing businesses'
+  },
+  { 
+    name: 'Pro Site', 
+    priceLabel: '$1799', 
+    productId: 'prod_SKtKDhawq0GveH',
+    features: [
+      'Up to 12 pages',
+      'Advanced interactive elements',
+      'Booking or forms',
+      'API integrations',
+      'Newsletter signup',
+      'Google Analytics',
+      '3 revisions'
+    ],
+    idealFor: 'Ideal for advanced web needs'
+  },
+  { 
+    name: 'E-Commerce Site', 
+    priceLabel: '$2499+', 
+    productId: 'prod_SKtPeWgzmn1OPK',
+    features: [
+      'Up to 15 product pages',
+      'Shopping cart + checkout',
+      'Payment gateway',
+      'Inventory + customer login',
+      'Security & performance',
+      '3 revisions'
+    ],
+    idealFor: 'Perfect for online stores'
+  }
+];
 
 export default function PricingPage() {
+  const [loading, setLoading] = useState<string | null>(null);
+
+  const handleCheckout = async (productId: string) => {
+    setLoading(productId);
+    
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId })
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || `HTTP error ${response.status}`);
+      }
+      
+      const { url, error } = await response.json();
+      
+      if (error) {
+        throw new Error(error);
+      }
+      
+      if (!url) {
+        throw new Error('No checkout URL received from the server');
+      }
+      
+      window.location.href = url;
+    } catch (error) {
+      console.error('Error during checkout:', error);
+      alert(`Checkout failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      setLoading(null);
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-16 max-w-7xl">
       {/* Hero Section */}
@@ -16,87 +117,38 @@ export default function PricingPage() {
       {/* Pricing Tiers */}
       <section className="mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Starter */}
-          <div className="border rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col">
-            <h3 className="text-2xl font-bold mb-2">Starter Site</h3>
-            <div className="text-3xl font-bold mb-6">$499</div>
-            <ul className="space-y-3 mb-8 flex-grow">
-              <li>Up to 3 pages</li>
-              <li>Mobile responsive design</li>
-              <li>Custom domain setup</li>
-              <li>Basic contact form</li>
-              <li>1 round of revisions</li>
-            </ul>
-            <div className="mt-auto">
-              <p className="italic text-sm mb-4">Ideal for: Personal portfolios, local services</p>
-              <Link href="/#contact">
-                <Button className="w-full">Get Started</Button>
-              </Link>
+          {plans.map((plan) => (
+            <div 
+              key={plan.productId} 
+              className={`border rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col ${plan.popular ? 'bg-gray-50 border-blue-500' : ''}`}
+            >
+              {plan.popular && (
+                <div className="bg-blue-500 text-white text-xs uppercase font-bold tracking-wider py-1 px-2 rounded-full inline-block mb-3 self-start">
+                  Popular
+                </div>
+              )}
+              
+              <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+              <div className="text-3xl font-bold mb-6">{plan.priceLabel}</div>
+              
+              <ul className="space-y-3 mb-8 flex-grow">
+                {plan.features.map((feature, idx) => (
+                  <li key={idx}>{feature}</li>
+                ))}
+              </ul>
+              
+              <div className="mt-auto">
+                <p className="italic text-sm mb-4">{plan.idealFor}</p>
+                <Button 
+                  className={`w-full ${plan.popular ? 'bg-blue-500 hover:bg-blue-600' : ''}`}
+                  onClick={() => handleCheckout(plan.productId)}
+                  disabled={loading === plan.productId}
+                >
+                  {loading === plan.productId ? 'Processing...' : 'Purchase Now'}
+                </Button>
+              </div>
             </div>
-          </div>
-
-          {/* Business */}
-          <div className="border rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col">
-            <h3 className="text-2xl font-bold mb-2">Business Site</h3>
-            <div className="text-3xl font-bold mb-6">$999</div>
-            <ul className="space-y-3 mb-8 flex-grow">
-              <li>Up to 7 pages</li>
-              <li>Enhanced design and animations</li>
-              <li>Contact form with email integration</li>
-              <li>Blog or project listing</li>
-              <li>Social integrations</li>
-              <li>SEO basics</li>
-              <li>2 revisions</li>
-            </ul>
-            <div className="mt-auto">
-              <p className="italic text-sm mb-4">Ideal for: Growing businesses</p>
-              <Link href="/#contact">
-                <Button className="w-full">Get Started</Button>
-              </Link>
-            </div>
-          </div>
-
-          {/* Pro */}
-          <div className="border rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col bg-gray-50 border-blue-500">
-            <div className="bg-blue-500 text-white text-xs uppercase font-bold tracking-wider py-1 px-2 rounded-full inline-block mb-3 self-start">Popular</div>
-            <h3 className="text-2xl font-bold mb-2">Pro Site</h3>
-            <div className="text-3xl font-bold mb-6">$1799</div>
-            <ul className="space-y-3 mb-8 flex-grow">
-              <li>Up to 12 pages</li>
-              <li>CMS integration</li>
-              <li>Booking or forms</li>
-              <li>API integrations</li>
-              <li>Newsletter signup</li>
-              <li>Google Analytics</li>
-              <li>3 revisions</li>
-            </ul>
-            <div className="mt-auto">
-              <p className="italic text-sm mb-4">Ideal for: Advanced web needs</p>
-              <Link href="/#contact">
-                <Button className="w-full bg-blue-500 hover:bg-blue-600">Get Started</Button>
-              </Link>
-            </div>
-          </div>
-
-          {/* E-Commerce */}
-          <div className="border rounded-lg shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col">
-            <h3 className="text-2xl font-bold mb-2">E-Commerce Site</h3>
-            <div className="text-3xl font-bold mb-6">$2499+</div>
-            <ul className="space-y-3 mb-8 flex-grow">
-              <li>Up to 15 product pages</li>
-              <li>Shopping cart + checkout</li>
-              <li>Payment gateway</li>
-              <li>Inventory + customer login</li>
-              <li>Security & performance</li>
-              <li>3 revisions</li>
-            </ul>
-            <div className="mt-auto">
-              <p className="italic text-sm mb-4">Ideal for: Online stores</p>
-              <Link href="/#contact">
-                <Button className="w-full">Get Started</Button>
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -110,16 +162,16 @@ export default function PricingPage() {
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Feature
                 </th>
-                <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">
                   Starter
                 </th>
-                <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">
                   Business
                 </th>
-                <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">
                   Pro
                 </th>
-                <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">
                   E-Commerce
                 </th>
               </tr>
@@ -133,11 +185,11 @@ export default function PricingPage() {
                 <td className="px-6 py-4 text-sm text-gray-500 text-center">15 pages</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 text-sm font-medium text-gray-900">CMS</td>
-                <td className="px-6 py-4 text-sm text-gray-500 text-center">No</td>
-                <td className="px-6 py-4 text-sm text-gray-500 text-center">No</td>
-                <td className="px-6 py-4 text-sm text-gray-500 text-center">Yes</td>
-                <td className="px-6 py-4 text-sm text-gray-500 text-center">Yes</td>
+                <td className="px-6 py-4 text-sm font-medium text-gray-900">Interactive Elements</td>
+                <td className="px-6 py-4 text-sm text-gray-500 text-center">Basic</td>
+                <td className="px-6 py-4 text-sm text-gray-500 text-center">Enhanced</td>
+                <td className="px-6 py-4 text-sm text-gray-500 text-center">Advanced</td>
+                <td className="px-6 py-4 text-sm text-gray-500 text-center">Advanced</td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900">Contact form</td>
@@ -179,10 +231,10 @@ export default function PricingPage() {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                   Service
                 </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-right text-xs font-bold text-gray-700 uppercase tracking-wider">
                   Price
                 </th>
               </tr>
@@ -201,7 +253,7 @@ export default function PricingPage() {
                 <td className="px-6 py-4 text-sm text-gray-500 text-right">$150</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 text-sm font-medium text-gray-900">CMS/Admin</td>
+                <td className="px-6 py-4 text-sm font-medium text-gray-900">Admin dashboard</td>
                 <td className="px-6 py-4 text-sm text-gray-500 text-right">$350+</td>
               </tr>
               <tr>
