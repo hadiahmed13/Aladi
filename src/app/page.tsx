@@ -67,8 +67,8 @@ export default function HomePage() {
                         <div className="mx-auto grid max-w-5xl items-start gap-8 py-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
                             {projects.map((project) => (
                                 <div
-                                    key={project.id}
-                                    className="group relative overflow-hidden rounded-lg border-gray-300 border-2 bg-background shadow-xl hover:border-gray-500 hover:shadow-xl transform transition-all hover:-translate-y-0.5"
+                                key={project.id}
+                                className="group relative overflow-hidden rounded-lg border-gray-300 border-2 bg-background shadow-xl hover:border-gray-500 hover:shadow-xl transform transition-all hover:-translate-y-0.5"
                                 >
                                     <Link href={project.url} passHref legacyBehavior>
                                         {/*This section is so links open in a new tab*/}
@@ -422,11 +422,11 @@ export default function HomePage() {
 const projects = [
     {
         id: 1,
-        name: "GTA Podcasts",
-        description: "A Podcasting and Recording studio",
-        image: "/gta_podcasts_logo.webp?height=100&width=100",
-        url: "https://gtapodcasts.com",
-        imageClass: "object-contain object-center w-3/4 h-3/4 mx-auto",
+        name: "Worst Work",
+        description: "An Establish Clothing Brand",
+        image: "/WorstWorkLogo.png?height=100&width=100",
+        url: "https://worstwork.com/collections",
+        imageClass: "object-contain object-center w-3/4 h-3/4 mx-auto invert -ml-2", // -ml-1 is roughly 4px with Tailwind's default scale
     },
     {
         id: 2,
